@@ -1,13 +1,13 @@
 const express = require('express');
-const bodyPasrser = require('body-parser');
+const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-const stuffRoutes = require('./routes/stuff');
+const sauceRoutes = require('./routes/sauce');
 const userRoutes = require('./routes/user');
 const path = require('path');
 
 const app = express();
 
-mongoose.connect('mongodb+srv://Sanya1:GoodLife81@cluster0.baalq.mongodb.net/FamilyLife81?retryWrites=true&w=majority')
+mongoose.connect('mongodb+srv://Mike1:GoodLife81@cluster0.ufed8.mongodb.net/myFirstDatabase?retryWrites=true&w=majority')
  .then(() => { 
   console.log('Successfully connected to MongoDB Atlas!');
  })
@@ -23,7 +23,7 @@ app.use((req, res, next) => {
   next();
 });
 app.use('/images', express.static(path.join(__dirname, 'images')));
-app.use(bodyPasrser.json());
-app.use('/api/stuff', stuffRoutes);
+app.use(bodyParser.json());
+app.use('/api/sauce', sauceRoutes);
 app.use('/api/auth', userRoutes);
 module.exports = app;
