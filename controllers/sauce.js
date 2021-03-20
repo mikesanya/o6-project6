@@ -127,7 +127,7 @@ exports.getAllSauce = (req, res, next) => {
 };
 
 exports.likeSauce = (req, res, next) => {
-  sauce.findOne({_id: req.params.id}).then((sauce) => {
+  Sauce.findOne({_id: req.params.id}).then((sauce) => {
     if (req.body.like == 1) {
         sauce.usersLiked.push(req.body.userId)
         sauce.likes += req.body.like
